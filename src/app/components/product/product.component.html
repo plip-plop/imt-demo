@@ -1,16 +1,15 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>Grand prix de Belcastel</mat-card-title>
-        <mat-card-subtitle>50 €</mat-card-subtitle>
-        <img mat-card-md-image src="assets/img/belcastel-xl.png"  alt="">
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-        Faites avancer votre animal en le nourrissant et ainsi tenter de remporter la course du chaudron d'or !
-    </mat-card-content>
-    <mat-card-actions align="start">
-        <button mat-button color="primary">Acheter</button>
-      </mat-card-actions>
-  </mat-card>
-  
+<mat-card class="example-card" [ngClass]="{'en-rupture' : product.stock === 1 }">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{product.title}}</mat-card-title>
+      <mat-card-subtitle>{{product.price}} €</mat-card-subtitle>
+      <img mat-card-md-image src="{{product.photo}}" alt="">
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    {{product.description}}
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <button mat-button color="primary" (click)="onClick(product)">Acheter</button>
+  </mat-card-actions>
+</mat-card>

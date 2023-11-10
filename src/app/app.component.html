@@ -1,1 +1,14 @@
-<app-menu><app-product /></app-menu>
+<app-menu>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Mon panier</mat-card-title>
+            <mat-card-subtitle *ngIf="totalPrice > 0; else noPrice">{{totalPrice}} €</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+    <ng-container *ngFor="let product of products">
+        <app-product *ngIf="product.stock > 0" [product]="product" (ajouterPanier)="ajouterAuPanier($event)" />
+    </ng-container>
+</app-menu>
+<ng-template #noPrice>
+    <p>Vous n'avez pas encore d'articles dans votre panier!</p>
+</ng-template>
