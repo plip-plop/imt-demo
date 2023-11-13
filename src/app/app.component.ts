@@ -12,7 +12,7 @@ import { Observable, Subscription, of } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'imtApp';
 
-  totalPrice = 0;
+  totalPrice = this.basketService.getTotalBasket();
   products: Product[] = []; // Souscription par ".subscribe()"
   produits$: Observable<Product[]> = of([]); // Souscription par "| async" (voir "app-component.html")
 
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   ajouterAuPanier($event: Product) {
-    this.totalPrice += $event.price;
+    // this.totalPrice += $event.price;
     --$event.stock;
   }
 }
