@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeFr);
 import localeFr from '@angular/common/locales/fr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import localeFr from '@angular/common/locales/fr';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    HttpClientModule,
   ],
   providers: [
     {
