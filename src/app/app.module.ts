@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr);
+import localeFr from '@angular/common/locales/fr';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,12 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'fr-FR'
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

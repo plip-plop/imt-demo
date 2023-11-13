@@ -2,7 +2,7 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title>Mon panier</mat-card-title>
-            <mat-card-subtitle *ngIf="totalPrice > 0; else noPrice">{{totalPrice}} €</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="totalPrice > 0; else noPrice">{{totalPrice | currency: 'EUR' }}</mat-card-subtitle>
         </mat-card-header>
     </mat-card>
     <ng-container *ngFor="let product of products">
